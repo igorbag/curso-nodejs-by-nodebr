@@ -2,24 +2,7 @@
 
 - Trabalhando com o padrão Strategy para Multi DataSources
 
-## Instalando docker para usar o MongoDB e Postgres
-
-```shell
-docker run \
-    --name postgres \
-    -e POSTGRES_USER=erickwendel \
-    -e POSTGRES_PASSWORD=minhasenhasecreta \
-    -e POSTGRES_DB=heroes \
-    -p 5432:5432 \
-    -d \
-    postgres
-
-docker run \
-    --name adminer \
-    -p 8080:8080 \
-    --link postgres:postgres \
-    -d \
-    adminer
+## Instalando docker para usar o MongoDB
 
 ## ---- MONGODB
 docker run \
@@ -43,4 +26,14 @@ sleep 5;
 docker exec -it mongodb \
     mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
     --eval "db.getSiblingDB('herois').createUser({user: 'erickwendel', pwd: 'minhasenhasecreta', roles: [{role: 'readWrite', db: 'herois'}]})"
+    
 ```
+
+Instalando dependencias:
+npm i
+
+Rodando projeto local:
+npm start
+
+Rodando Testes Unitários:
+npm t
